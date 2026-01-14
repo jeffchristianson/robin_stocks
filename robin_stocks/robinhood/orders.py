@@ -388,7 +388,7 @@ def order_buy_fractional_by_price(symbol, amountInDollars, account_number=None, 
 
 
 @login_required
-def order_buy_limit(symbol, quantity, limitPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True):
+def order_buy_limit(symbol, quantity, limitPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True, market_hours='regular_hours'):
     """Submits a limit order to be executed once a certain price is reached.
 
     :param symbol: The stock ticker of the stock to purchase.
@@ -411,7 +411,7 @@ def order_buy_limit(symbol, quantity, limitPrice, account_number=None, timeInFor
     the price, and the quantity.
 
     """ 
-    return order(symbol, quantity, "buy", limitPrice, None, account_number, timeInForce, extendedHours, jsonify)
+    return order(symbol, quantity, "buy", limitPrice, None, account_number, timeInForce, extendedHours, jsonify, market_hours=market_hours)
 
 
 @login_required
@@ -442,7 +442,7 @@ def order_buy_stop_loss(symbol, quantity, stopPrice, account_number=None, timeIn
 
 
 @login_required
-def order_buy_stop_limit(symbol, quantity, limitPrice, stopPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True):
+def order_buy_stop_limit(symbol, quantity, limitPrice, stopPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True, market_hours='regular_hours'):
     """Submits a stop order to be turned into a limit order once a certain stop price is reached.
 
     :param symbol: The stock ticker of the stock to purchase.
@@ -467,7 +467,7 @@ def order_buy_stop_limit(symbol, quantity, limitPrice, stopPrice, account_number
     the price, and the quantity.
 
     """ 
-    return order(symbol, quantity, "buy", limitPrice, stopPrice, account_number, timeInForce, extendedHours, jsonify)
+    return order(symbol, quantity, "buy", limitPrice, stopPrice, account_number, timeInForce, extendedHours, jsonify, market_hours=market_hours)
 
 
 @login_required
@@ -585,7 +585,7 @@ def order_sell_fractional_by_price(symbol, amountInDollars, account_number=None,
 
 
 @login_required
-def order_sell_limit(symbol, quantity, limitPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True):
+def order_sell_limit(symbol, quantity, limitPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True, market_hours='regular_hours'):
     """Submits a limit order to be executed once a certain price is reached.
 
     :param symbol: The stock ticker of the stock to sell.
@@ -608,7 +608,7 @@ def order_sell_limit(symbol, quantity, limitPrice, account_number=None, timeInFo
     the price, and the quantity.
 
     """ 
-    return order(symbol, quantity, "sell", limitPrice, None, account_number, timeInForce, extendedHours, jsonify)
+    return order(symbol, quantity, "sell", limitPrice, None, account_number, timeInForce, extendedHours, jsonify, market_hours=market_hours)
 
 
 @login_required
@@ -639,7 +639,7 @@ def order_sell_stop_loss(symbol, quantity, stopPrice, account_number=None, timeI
 
 
 @login_required
-def order_sell_stop_limit(symbol, quantity, limitPrice, stopPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True):
+def order_sell_stop_limit(symbol, quantity, limitPrice, stopPrice, account_number=None, timeInForce='gtc', extendedHours=False, jsonify=True, market_hours='regular_hours'):
     """Submits a stop order to be turned into a limit order once a certain stop price is reached.
 
     :param symbol: The stock ticker of the stock to sell.
@@ -664,7 +664,7 @@ def order_sell_stop_limit(symbol, quantity, limitPrice, stopPrice, account_numbe
     the price, and the quantity.
 
     """ 
-    return order(symbol, quantity, "sell", limitPrice, stopPrice, account_number, timeInForce, extendedHours, jsonify)
+    return order(symbol, quantity, "sell", limitPrice, stopPrice, account_number, timeInForce, extendedHours, jsonify, market_hours=market_hours)
 
 
 @login_required
